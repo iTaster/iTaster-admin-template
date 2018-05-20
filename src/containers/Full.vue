@@ -10,14 +10,16 @@
         </div>
       </el-main>
       <!--<AppAside/>-->
+      <AppFooter/>
     </div>
-    <!--<AppFooter/>-->
+    <Theme/>
   </div>
 </template>
 
 <script>
   import nav from '../_nav'
   import {
+    Theme,
     Header as AppHeader,
     Sidebar as AppSidebar,
     Aside as AppAside,
@@ -28,6 +30,7 @@
   export default {
     name: "Full",
     components: {
+      Theme,
       AppHeader,
       AppSidebar,
       AppAside,
@@ -49,8 +52,8 @@
     }
   }
 </script>
-
 <style lang="scss">
+  @import "../assets/scss/variables";
 
   .app {
     display: flex;
@@ -61,8 +64,7 @@
       flex-grow: 1;
       flex-direction: row;
       overflow-x: hidden;
-      margin-top: 70px;
+      margin-top: $header-height;
     }
-
   }
 </style>

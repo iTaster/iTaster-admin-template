@@ -1,0 +1,289 @@
+// Bootstrap overrides
+
+//
+// Color system
+//
+
+$white:                           #fff;
+$gray-100:                        #f0f3f5;
+$gray-200:                        #c2cfd6;
+$gray-300:                        #a4b7c1;
+$gray-400:                        #869fac;
+$gray-500:                        #678898;
+$gray-600:                        #536c79;
+$gray-700:                        #3e515b;
+$gray-800:                        #29363d;
+$gray-900:                        #151b1e;
+$black:                           #000 !default;
+
+$blue:                            #20a8d8;
+$indigo:                          #6610f2 !default;
+$purple:                          #6f42c1 !default;
+$pink:                            #e83e8c !default;
+$red:                             #f86c6b;
+$orange:                          #f8cb00;
+$yellow:                          #ffc107 !default;
+$green:                           #4dbd74;
+$teal:                            #20c997 !default;
+$cyan:                            #63c2de;
+
+$colors: (
+  blue:                           $blue,
+  indigo:                         $indigo,
+  purple:                         $purple,
+  pink:                           $pink,
+  red:                            $red,
+  orange:                         $orange,
+  yellow:                         $yellow,
+  green:                          $green,
+  teal:                           $teal,
+  cyan:                           $cyan,
+  white:                          $white,
+  gray:                           $gray-600,
+  gray-dark:                      $gray-800
+);
+
+
+// header
+
+$header-height:                       55px !default;
+$header-bg:                           #4B79A1 !default;
+$header-linear-gradient:              linear-gradient(to right, rgba(40, 62, 81, .5), rgba(75, 121, 161, .5));
+
+
+// Sidebar
+
+$sidebar-width:                       200px !default;
+$sidebar-footer-height:               50px !default;
+
+
+
+
+
+
+$sidebar-padding:                     0 !default;
+$sidebar-minimized-width:             50px !default;
+$sidebar-minimized-height:            $sidebar-minimized-width !default;
+$sidebar-compact-width:               150px !default;
+$sidebar-color:                       #fff !default;
+$sidebar-bg:                          $gray-800 !default;
+$sidebar-borders:                     none !default;
+$mobile-sidebar-width:                220px !default;
+
+// Sidebar Header
+
+$sidebar-header-height:               auto !default;
+$sidebar-header-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-header-padding-y:            .75rem !default;
+$sidebar-header-padding-x:            1rem !default;
+
+// Sidebar Form
+
+$sidebar-form-border:                 0 !default;
+$sidebar-form-bg:                     darken($sidebar-bg,10%) !default;
+$sidebar-form-color:                  #fff !default;
+$sidebar-form-placeholder-color:      rgba(255,255,255,.7) !default;
+
+// Sidebar Navigation
+
+$sidebar-nav-color:                   #fff !default;
+$sidebar-nav-title-padding-y:         .75rem !default;
+$sidebar-nav-title-padding-x:         1rem !default;
+$sidebar-nav-title-color:             $gray-200 !default;
+$sidebar-nav-link-padding-y:          .75rem !default;
+$sidebar-nav-link-padding-x:          1rem !default;
+$sidebar-nav-link-color:              #fff !default;
+$sidebar-nav-link-bg:                 transparent !default;
+$sidebar-nav-link-icon-color:         $gray-600 !default;
+$sidebar-nav-link-borders:            0 !default;
+
+$sidebar-nav-link-hover-color:        #fff !default;
+$sidebar-nav-link-hover-bg:           theme-color("primary") !default;
+$sidebar-nav-link-hover-icon-color:   #fff !default;
+$sidebar-nav-link-hover-borders:      0 !default;
+
+$sidebar-nav-link-active-color:       #fff !default;
+$sidebar-nav-link-active-bg:          lighten($sidebar-bg, 5%) !default;
+$sidebar-nav-link-active-icon-color:  theme-color("primary") !default;
+$sidebar-nav-link-active-borders:     0 !default;
+
+$sidebar-nav-dropdown-color:          #fff !default;
+$sidebar-nav-dropdown-bg:             rgba(0,0,0,.2) !default;
+$sidebar-nav-dropdown-borders:        0 !default;
+$sidebar-nav-dropdown-indicator-color:$gray-600 !default;
+$sidebar-nav-dropdown-indicator:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-nav-dropdown-indicator-hover-color:$sidebar-nav-link-hover-color;
+$sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// Sidebar Footer
+
+$sidebar-footer-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-footer-padding-y:            .75rem !default;
+$sidebar-footer-padding-x:            1rem !default;
+$sidebar-footer-borders:              0 !default;
+
+// Sidebar Minimizer
+
+$sidebar-minimizer-height:            50px !default;
+$sidebar-minimizer-bg:                rgba(0,0,0,.2) !default;
+$sidebar-minimizer-borders:           0 !default;
+$sidebar-minimizer-indicator-color:   $gray-600 !default;
+$sidebar-minimizer-hover-bg:          rgba(0,0,0,.3) !default;
+$sidebar-minimizer-hover-indicator-color:$sidebar-nav-link-hover-color !default;
+
+
+
+
+
+
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                         #e4e5e6;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:                  0.875rem;
+
+// Breadcrumbs
+
+$breadcrumb-bg:                   #fff;
+$breadcrumb-margin-bottom:        1.5rem;
+
+// Cards
+
+$card-border-color:               $gray-200;
+$card-cap-bg:                     $gray-100;
+
+// Dropdowns
+
+$dropdown-padding-y:              0;
+$dropdown-border-color:           $gray-200;
+$dropdown-divider-bg:             $gray-100;
+
+// Buttons
+
+$btn-secondary-border:            $gray-300;
+
+// Progress bars
+
+$progress-bg:                     $gray-100;
+
+// Tables
+
+$table-bg-accent:                 $gray-100;
+$table-bg-hover:                  $gray-100;
+
+// Forms
+
+$input-group-addon-bg:            $gray-100;
+$input-border-color:              $gray-200;
+$input-group-addon-border-color:  $gray-200;
+
+// Core Admin Variables
+
+$enable-sidebar-nav-rounded:          false !default;
+
+$border-color:                        $gray-200 !default;
+$layout-transition-speed:             .25s !default;
+
+// Social Colors
+
+
+
+
+
+$navbar-border: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+)  !default;
+$navbar-brand-width:                  155px !default;
+$navbar-brand-bg:                     #fff !default;
+$navbar-brand-logo-size:              70px auto !default;
+$navbar-brand-border: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+$navbar-brand-minimized-width:        50px !default;
+$navbar-brand-minimized-bg:           $navbar-brand-bg !default;
+$navbar-brand-minimized-logo-size:    24px !default;
+$navbar-brand-minimized-border:       $navbar-brand-border !default;
+
+$navbar-color:                        $gray-600 !default;
+$navbar-hover-color:                  $gray-800 !default;
+$navbar-active-color:                 $gray-800 !default;
+$navbar-disabled-color:               $gray-300 !default;
+
+
+
+
+// Top Navigation
+
+$top-nav-bg:                          #fff !default;
+$top-nav-borders: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+$top-nav-ul-borders: (
+  all: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+// Breadcrumb
+$breadcrumb-borders: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+// Aside
+
+$aside-menu-width:                    250px !default;
+$aside-menu-color:                    $gray-800 !default;
+$aside-menu-bg:                       #fff !default;
+$aside-menu-borders: (
+  left: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+$aside-menu-nav-padding-y:            .75rem !default;
+$aside-menu-nav-padding-x:            1rem !default;
+
+// Footer
+
+$footer-height:                       50px !default;
+$footer-bg:                           $gray-100 !default;
+$footer-borders: (
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+// Cards
+
+$card-icon-bg:                        transparent !default;
