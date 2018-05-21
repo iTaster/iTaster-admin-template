@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import ScreenFull from 'screenfull'
+  import screenfull from 'screenfull'
 
   export default {
     name: 'ScreenFull',
@@ -20,10 +20,10 @@
     },
     methods: {
       rootFullScreen() {
-        if (!ScreenFull.enabled) {
-          return false
+        if (screenfull.enabled) {
+          screenfull.request();
         }
-        ScreenFull.toggle()
+        screenfull.toggle()
       }
     }
   }
