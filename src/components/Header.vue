@@ -1,11 +1,10 @@
 <template>
-  <el-header class="app-header" height="55px">
-    <router-link to="/" class="logo">LOGO</router-link>
-    <section>
-
+  <el-header class="app-header" height="$header-height">
+    <router-link to="/" class="logo"></router-link>
+    <nav class="app-header-nav">
       <!--<div @click="setLang('en')" v-if="language==='zh'">EN</div>-->
       <!--<div @click="setLang('zh')" v-else>中文</div>-->
-
+      <ScreenFull class="el-dropdown"/>
       <el-dropdown>
         <img src="../assets/icons/地球.svg" alt="">
         <el-dropdown-menu slot="dropdown">
@@ -18,20 +17,24 @@
         </el-dropdown-menu>
       </el-dropdown>
       <el-dropdown>
-        <img src="../assets/icons/用户.svg" alt="">
+        <img src="../assets/img/avatar.png" height="40" width="40"/>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>{{$t('setting')}}</el-dropdown-item>
           <el-dropdown-item>{{$t('logout')}}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-    </section>
+    </nav>
   </el-header>
 </template>
 <script>
   import API from '../api'
+  import ScreenFull from '../components/ScreenFull'
 
   export default {
     name: 'Header',
+    components: {
+      ScreenFull
+    },
     data: function () {
       return {
         username: null,
@@ -71,6 +74,14 @@
 <style lang="scss">
   @import "../assets/scss/variables";
 
+  .logo {
+    display: inline-block;
+    width: 200px;
+    height: $header-height;
+    margin-right: 0;
+    background: url(../assets/logo.png) no-repeat 50% / auto 50px;
+  }
+
   .app-header {
     position: fixed;
     top: 0;
@@ -97,7 +108,11 @@
       padding: 0 2em;
     }
     .el-dropdown {
-      width: 50px;
+      width: 4rem;
+    }
+    &-nav{
+      display: flex;
+      align-items: center;
     }
   }
 </style>

@@ -1,65 +1,34 @@
 <template>
-  <div>
-    <svg t="1508738709248" @click='click' class="screenfull-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-         p-id="2069" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32">
-      <path d="M333.493443 428.647617 428.322206 333.832158 262.572184 168.045297 366.707916 64.444754 64.09683 64.444754 63.853283 366.570793 167.283957 262.460644Z"
-            p-id="2070"></path>
-      <path d="M854.845439 760.133334 688.61037 593.95864 593.805144 688.764889 759.554142 854.56096 655.44604 958.161503 958.055079 958.161503 958.274066 656.035464Z"
-            p-id="2071"></path>
-      <path d="M688.535669 428.550403 854.31025 262.801405 957.935352 366.921787 957.935352 64.34754 655.809313 64.081481 759.919463 167.535691 593.70793 333.731874Z"
-            p-id="2072"></path>
-      <path d="M333.590658 594.033341 167.8171 759.804852 64.218604 655.67219 64.218604 958.270996 366.342596 958.502263 262.234493 855.071589 428.421466 688.86108Z"
-            p-id="2073"></path>
+  <div @click="rootFullScreen">
+    <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+      <path
+        d="M909 959H780a30 30 0 0 1 0-60h99a20 20 0 0 0 20-20v-99a30 30 0 0 1 60 0v129a50 50 0 0 1-50 50zm20-685a30 30 0 0 1-30-30v-99a20 20 0 0 0-20-20h-99a30 30 0 0 1 0-60h129a50 50 0 0 1 50 50v129a30 30 0 0 1-30 30zm-157 28v420a50 50 0 0 1-50 50H302a50 50 0 0 1-50-50V302a50 50 0 0 1 50-50h420a50 50 0 0 1 50 50zm-60 30a20 20 0 0 0-20-20H332a20 20 0 0 0-20 20v360a20 20 0 0 0 20 20h360a20 20 0 0 0 20-20V332zM244 125h-99a20 20 0 0 0-20 20v99a30 30 0 0 1-60 0V115a50 50 0 0 1 50-50h129a30 30 0 0 1 0 60zM95 750a30 30 0 0 1 30 30v99a20 20 0 0 0 20 20h99a30 30 0 0 1 0 60H115a50 50 0 0 1-50-50V780a30 30 0 0 1 30-30z"
+        fill="#fff"/>
     </svg>
   </div>
 </template>
 
 <script>
-  import screenfull from 'screenfull'
+  import ScreenFull from 'screenfull'
 
   export default {
     name: 'ScreenFull',
-    props: {
-      width: {
-        type: Number,
-        default: 22
-      },
-      height: {
-        type: Number,
-        default: 22
-      },
-      fill: {
-        type: String,
-        default: '#48576a'
-      }
-    },
     data() {
       return {
-        isFullscreen: false
+
       }
     },
     methods: {
-      click() {
-        if (!screenfull.enabled) {
-          this.$message({
-            message: 'you browser can not work',
-            type: 'warning'
-          })
+      rootFullScreen() {
+        if (!ScreenFull.enabled) {
           return false
         }
-        screenfull.toggle()
+        ScreenFull.toggle()
       }
     }
   }
 </script>
 
 <style scoped>
-  .screenfull-svg {
-    display: inline-block;
-    cursor: pointer;
-    fill: #5a5e66;;
-    width: 20px;
-    height: 20px;
-    vertical-align: 10px;
-  }
+
 </style>

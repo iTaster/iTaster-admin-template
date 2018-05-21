@@ -3,14 +3,12 @@
     <AppHeader/>
     <div class="app-body">
       <AppSidebar/>
-      <el-main class="main">
+      <el-main class="app-main">
         <breadcrumb :list="list"/>
         <div>
           <router-view></router-view>
         </div>
-      </el-main>
-      <!--<AppAside/>-->
-      <AppFooter/>
+      </el-main>>
     </div>
     <Theme/>
   </div>
@@ -65,6 +63,9 @@
       flex-direction: row;
       overflow-x: hidden;
       margin-top: $header-height;
+    }
+    &-main{
+      color: $white;
     }
   }
 </style>

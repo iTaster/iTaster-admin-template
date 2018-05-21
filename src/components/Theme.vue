@@ -149,7 +149,7 @@
   .theme{
     position: absolute;
     background-color: #141E30;
-    z-index: 0;
+    z-index: -10;
   }
   .canvas-star {
     position: absolute;
@@ -158,7 +158,7 @@
   .space {
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+
     float: left;
     overflow: hidden;
     .star {
@@ -174,7 +174,7 @@
       animation: star-ani 6s infinite ease-out;
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
       opacity: 0;
-      z-index: 2;
+      z-index: -8;
       &:after {
         content: '';
         display: block;
