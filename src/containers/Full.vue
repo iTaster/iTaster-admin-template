@@ -8,7 +8,7 @@
         <div>
           <router-view></router-view>
         </div>
-      </el-main>>
+      </el-main>
     </div>
     <Theme/>
   </div>

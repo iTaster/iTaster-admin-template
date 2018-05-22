@@ -4,7 +4,9 @@ import 'normalize.css'
 import Vue from 'vue'
 import i18n from './i18n'
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+
+// 自定义 element-ui 主题
+import './assets/scss/element-variables.scss'
 
 
 // 引用axios文件

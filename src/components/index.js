@@ -1,9 +1,10 @@
 import Aside from './Aside.vue'
 import Breadcrumb from './Breadcrumb.vue'
 import Footer from './Footer.vue'
-import Header from './Header.vue'
-import ScreenFull from './ScreenFull'
-import Sidebar from './Sidebar.vue'
+import Header from './Header/Header.vue'
+import ScreenFull from './Header/ScreenFull'
+import NavbarToggle from './Header/NavbarToggle'
+import Sidebar from './Sidebar/Sidebar.vue'
 import Theme from './Theme'
 
 export {
@@ -12,6 +13,7 @@ export {
   Footer,
   Header,
   ScreenFull,
+  NavbarToggle,
   Sidebar,
   Theme
 }

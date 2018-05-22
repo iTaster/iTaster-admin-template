@@ -1,12 +1,13 @@
 <template>
-  <el-header class="app-header" height="$header-height">
-    <router-link to="/" class="logo"></router-link>
+  <el-header class="app-header" :height="height">
+    <div class="app-header-toggle">
+      <a href="/" class="logo" :class="{'logo-small':this.$store.getters.sidebar.isSmall}"></a>
+      <NavbarToggler/>
+    </div>
     <nav class="app-header-nav">
-      <!--<div @click="setLang('en')" v-if="language==='zh'">EN</div>-->
-      <!--<div @click="setLang('zh')" v-else>中文</div>-->
       <ScreenFull class="el-dropdown"/>
       <el-dropdown>
-        <img src="../assets/icons/地球.svg" alt="">
+        <img src="../../assets/icons/地球.svg" alt="">
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>
             <div @click="setLang('en')">English</div>
@@ -17,7 +18,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <el-dropdown>
-        <img src="../assets/img/avatar.png" height="40" width="40"/>
+        <img src="../../assets/img/avatar.png" height="40" width="40"/>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>{{$t('setting')}}</el-dropdown-item>
           <el-dropdown-item>{{$t('logout')}}</el-dropdown-item>
@@ -27,16 +28,19 @@
   </el-header>
 </template>
 <script>
-  import API from '../api'
-  import ScreenFull from '../components/ScreenFull'
+  import API from '../../api/index'
+  import ScreenFull from './ScreenFull'
+  import NavbarToggler from './NavbarToggle'
 
   export default {
     name: 'Header',
     components: {
-      ScreenFull
+      ScreenFull,
+      NavbarToggler
     },
     data: function () {
       return {
+        height:'60px',         // 此处的高度必须和 $header-height 值一样
         username: null,
       }
     },
@@ -49,9 +53,9 @@
             })*/
     },
     computed: {
-      language() {
+  /*    language() {
         return this.$store.getters.language;
-      }
+      }*/
     },
     methods: {
       setLang(lang) {
@@ -72,14 +76,19 @@
   }
 </script>
 <style lang="scss">
-  @import "../assets/scss/variables";
+  @import "../../assets/scss/variables";
 
   .logo {
     display: inline-block;
     width: 200px;
     height: $header-height;
     margin-right: 0;
-    background: url(../assets/logo.png) no-repeat 50% / auto 50px;
+    transition: width .25s;
+    background: url(../../assets/logo.png) no-repeat 50% / auto 50px;
+    &-small{
+      width: 64px;
+      background: url(../../assets/logo-small.png) no-repeat 50% / auto 36px;
+    }
   }
 
   .app-header {
@@ -110,7 +119,7 @@
     .el-dropdown {
       width: 4rem;
     }
-    &-nav{
+    &-toggle,&-nav{
       display: flex;
       align-items: center;
     }
