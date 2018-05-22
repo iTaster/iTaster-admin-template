@@ -1,6 +1,7 @@
 <template>
   <div class="navbar-toggle" @click="sidebarToggle">
-    <svg :class="{ toggle: isToggle }" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff">
+    <svg :class="{ toggle: isToggle }" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         width="30" height="30" fill="#fff">
       <path
         d="M147.95320888888898 257.08430222222216h728.3188622222223c20.10794666666666 0 36.40888888888889-16.300942222222222 36.40888888888889-36.40888888888889s-16.300942222222222-36.40888888888889-36.40888888888889-36.40888888888889H147.95320888888898c-20.10794666666666 0-36.40888888888889 16.300942222222222-36.40888888888889 36.40888888888889s16.300942222222222 36.40888888888889 36.40888888888889 36.40888888888889zM147.94296888888897 547.4645333333333h447.83843555555546c20.10794666666666 0 36.40888888888889-16.300942222222222 36.40888888888889-36.40888888888889s-16.300942222222222-36.40888888888889-36.40888888888889-36.40888888888889H147.94296888888897c-20.10794666666666 0-36.40888888888889 16.300942222222222-36.40888888888889 36.40888888888889s16.300942222222222 36.40888888888889 36.40888888888889 36.40888888888889zM876.272071111111 766.6369422222224H147.95320888888898c-20.10794666666666 0-36.40888888888889 16.300942222222222-36.40888888888889 36.40888888888889s16.300942222222222 36.40888888888889 36.40888888888889 36.40888888888889h728.3188622222223c20.10794666666666 0 36.40888888888889-16.300942222222222 36.40888888888889-36.40888888888889s-16.300942222222222-36.40888888888889-36.40888888888889-36.40888888888889zM731.7754311111111 693.5825066666666l182.04444444444442-182.04444444444442-182.04444444444442-182.04444444444442z"></path>
     </svg>
@@ -16,19 +17,20 @@
       }
     },
     methods: {
-      sidebarToggle () {
+      sidebarToggle() {
         var self = this;
+        // self.$store.dispatch('sidebarShow',true);
 
-        if(self.isToggle){
+
+        if (self.isToggle) {
           self.isToggle = false;
-          self.$store.commit('sidebarShow');
-          self.$store.commit('logoAndSidebarSmall',true);
+          self.$store.commit('sidebarShow',true);
+          self.$store.commit('logoAndSidebarSmall', true);
 
-        }else {
+        } else {
           self.isToggle = true;
-          self.$store.commit('sidebarFold');
-          self.$store.commit('sidebarShow');
-          self.$store.commit('logoAndSidebarSmall',false);
+          self.$store.commit('sidebarShow',false);
+          self.$store.commit('logoAndSidebarSmall', false);
         }
 
       },
@@ -39,7 +41,7 @@
 <style lang="scss">
 
   .navbar-toggle {
-    .toggle{
+    .toggle {
       transform: rotateZ(180deg);
     }
   }

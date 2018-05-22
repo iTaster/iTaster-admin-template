@@ -39,8 +39,10 @@
         </el-menu-item>
       </el-menu>
     </el-scrollbar>
-    <el-radio-group class="sidebar-footer" v-model="isCollapse" @change="logoAndSidebarSmall">
-      <el-radio-button :label="false" v-if="isCollapse" ><i class="el-icon-arrow-right"></i></el-radio-button>
+    <el-radio-group class="sidebar-footer"
+                    v-model="isCollapse"
+                    @change="logoAndSidebarSmall">
+      <el-radio-button :label="false" v-if="isCollapse"><i class="el-icon-arrow-right"></i></el-radio-button>
       <el-radio-button :label="true" v-else><i class="el-icon-arrow-left"></i></el-radio-button>
     </el-radio-group>
   </el-aside>
@@ -55,10 +57,6 @@
         isCollapse: this.$store.getters.sidebar.isFold
       };
     },
-    created(){
-      console.log('当前左侧边栏是否隐藏：' + this.$store.getters.sidebar.isFold);
-      return this.$store.getters.sidebar.isShow;
-    },
     methods: {
       handleOpen(key, keyPath) {
         // console.log(key, keyPath);
@@ -66,10 +64,10 @@
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
       },
-      logoAndSidebarSmall(key){
+      logoAndSidebarSmall(key) {
         console.log(key);
-        this.$store.commit('sidebarFold', key);
-        this.$store.commit('logoAndSidebarSmall', key);
+        key ? this.$store.commit('logoAndSidebarSmall', true) : this.$store.commit('logoAndSidebarSmall', false);
+
       }
     }
   }

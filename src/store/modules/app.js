@@ -15,22 +15,26 @@ const app = {
       Cookies.set('language', language);
       // console.log('当前设置的语言为：' + state.language);
     },
-    sidebarFold: (state, key) => {
-      state.sidebar.isFold = key;
-      state.sidebar.isFold ? state.sidebar.isFold = true : state.sidebar.isFold = false;
+    sidebarFold: state => {
+      state.sidebar.isFold = false;
     },
-    sidebarShow: state => {
-      state.sidebar.isShow ? state.sidebar.isShow = false : state.sidebar.isShow = true;
+    sidebarShow: (state, key) => {
+      key ? state.sidebar.isShow = true : state.sidebar.isShow = false;
       // console.log('当前左侧边栏是否隐藏：' + state.sidebar.isShow);
     },
     logoAndSidebarSmall:(state, key) => {
-      state.sidebar.isSmall = key;
+      key? state.sidebar.isSmall = true : state.sidebar.isSmall = false;
+
     },
   },
   actions: {                                    // 分发 mutations 里面的方法
     setLanguage({commit}, language) {
       commit('setLanguage', language)
-    }
+    },
+    sidebarFold({commit}) {
+      commit('sidebarFold')
+    },
+
   }
 }
 
