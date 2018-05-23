@@ -2,7 +2,7 @@
   <el-header class="app-header" :height="height">
     <div class="app-header-toggle">
       <a href="/" class="logo" :class="{'logo-small':this.$store.getters.sidebar.isSmall}"></a>
-      <NavbarToggler/>
+      <!--<NavbarToggler/>-->
     </div>
     <nav class="app-header-nav">
       <ScreenFull class="el-dropdown"/>

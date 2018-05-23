@@ -28,7 +28,7 @@ Vue.use(Element, {
 })
 
 /* eslint-disable no-new */
-new Vue({
+ new Vue({
   el: '#app',
   router,
   store,

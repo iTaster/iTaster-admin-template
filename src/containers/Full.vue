@@ -2,7 +2,7 @@
   <div class="app">
     <AppHeader/>
     <div class="app-body">
-      <AppSidebar/>
+      <AppSidebar :navItems="nav"/>
       <el-main class="app-main">
         <breadcrumb :list="list"/>
         <div>
@@ -37,7 +37,7 @@
     },
     data() {
       return {
-        nav: nav.items
+        nav: nav.items,
       }
     },
     computed: {

@@ -7,11 +7,16 @@ import Full from '@/containers/Full'
 // Views
 import Dashboard from '@/views/Dashboard'
 
+// Views - Pages
+import A from '@/views/pages/A'
+import B from '@/views/pages/B'
+
+
 Vue.use(Router)
 
 export default new Router({
   mode: 'hash',
-  linkActiveClass:'is-active',
+  linkActiveClass:'',
   linkExactActiveClass:'',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
@@ -25,9 +30,18 @@ export default new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
-        }
-
+        },
+        {
+          path: 'a',
+          name: 'A',
+          component: A
+        },
+        {
+          path: 'b',
+          name: 'B',
+          component: B
+        },
       ]
-    }
+    },
   ]
 })

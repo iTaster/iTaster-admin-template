@@ -7,40 +7,63 @@
                text-color="#fff"
                active-text-color="#427ec0"
                :collapse="isCollapse">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
+        <template v-for="(item, index) in navItems">
+          <router-link :to="item.url">
+            <el-menu-item :index="index">
+              <i :class="item.icon"></i>
+              <span slot="title">{{ item.name }}</span>
+            </el-menu-item>
+          </router-link>
+
+        </template>
+
         <el-menu-item index="4">
           <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
+          <span slot="title">{{$t('navigator')}}4</span>
         </el-menu-item>
+
+
+        <!--<el-submenu index="1">
+
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">{{$t('navigator')}}1</span>
+          </template>
+
+          <el-menu-item-group>
+            <span slot="title">{{$t('group')}}1</span>
+            <el-menu-item index="1-1">{{$t('item')}}1</el-menu-item>
+            <el-menu-item index="1-2">{{$t('item')}}2</el-menu-item>
+          </el-menu-item-group>
+
+          <el-menu-item-group>
+            <span slot="title">{{$t('group')}}2</span>
+            <el-menu-item index="1-3">{{$t('item')}}3</el-menu-item>
+          </el-menu-item-group>
+
+          <el-submenu index="1-4">
+            <span slot="title">{{$t('item')}}4</span>
+            <el-menu-item index="1-4-1">{{$t('item')}}1</el-menu-item>
+          </el-submenu>
+
+        </el-submenu>-->
+        <!--<el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title">{{$t('navigator')}}2</span>
+        </el-menu-item>-->
+        <!--<el-menu-item index="3">
+          <i class="el-icon-document"></i>
+          <span slot="title">{{$t('navigator')}}3</span>
+        </el-menu-item>-->
+        <!--<el-menu-item index="4">
+          <i class="el-icon-setting"></i>
+          <span slot="title">{{$t('navigator')}}4</span>
+        </el-menu-item>-->
       </el-menu>
     </el-scrollbar>
     <el-radio-group class="sidebar-footer"
                     v-model="isCollapse"
+                    :bihi-data="isCollapse"
                     @change="logoAndSidebarSmall">
       <el-radio-button :label="false" v-if="isCollapse"><i class="el-icon-arrow-right"></i></el-radio-button>
       <el-radio-button :label="true" v-else><i class="el-icon-arrow-left"></i></el-radio-button>
@@ -52,10 +75,21 @@
 
   export default {
     name: "sidebar",
+    props: {
+      navItems: {
+        type: Array,
+        required: true,
+        default: () => []
+      }
+    },
+    components: {},
     data() {
       return {
         isCollapse: this.$store.getters.sidebar.isFold
       };
+    },
+    created() {
+      console.log(this.$store.getters.sidebar.isFold);
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -65,9 +99,12 @@
         // console.log(key, keyPath);
       },
       logoAndSidebarSmall(key) {
-        console.log(key);
-        key ? this.$store.commit('logoAndSidebarSmall', true) : this.$store.commit('logoAndSidebarSmall', false);
-
+        // console.log(233);
+        // console.log('是否折叠：' + key);
+        this.$store.commit('sidebarFold', key);
+        this.$store.commit('logoAndSidebarSmall', key);
+        // console.log("11111:" + this.isCollapse);
+        // console.log("22222:"+ this.$store.getters.sidebar.isFold);
       }
     }
   }
@@ -105,6 +142,9 @@
       overflow: hidden;
       &:not(.el-menu--collapse) {
         width: $sidebar-width;
+      }
+      a {
+        color: $white;
       }
     }
 

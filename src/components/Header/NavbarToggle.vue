@@ -1,5 +1,7 @@
 <template>
-  <div class="navbar-toggle" @click="sidebarToggle">
+  <div class="navbar-toggle"
+
+       @click="sidebarToggle">
     <svg :class="{ toggle: isToggle }" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
          width="30" height="30" fill="#fff">
       <path
@@ -19,14 +21,13 @@
     methods: {
       sidebarToggle() {
         var self = this;
-        // self.$store.dispatch('sidebarShow',true);
-
+        console.log(0);
+        this.$store.commit('sidebarFold', false);
 
         if (self.isToggle) {
           self.isToggle = false;
           self.$store.commit('sidebarShow',true);
           self.$store.commit('logoAndSidebarSmall', true);
-
         } else {
           self.isToggle = true;
           self.$store.commit('sidebarShow',false);
