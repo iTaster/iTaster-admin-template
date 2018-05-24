@@ -10,19 +10,34 @@
                :collapse="isCollapse">
         <!--TODO: 从数组中获得导航菜单 并进行分级渲染-->
         <template v-for="(item, index) in navItems">
-          <template v-if="item.group">
-            <el-submenu :index="item.url">
+          <template v-if="item.children">
+            <el-submenu :index="item.url" :key="index" :bihi-data="index">
+              <!--TODO: 二级菜单-->
               <template slot="title">
                 <i :class="item.icon"></i>
                 <span slot="title">{{$t(item.name)}}</span>
               </template>
               <template v-for="(childL1, index) in item.children">
-                <el-menu-item :index="childL1.url" :key="index">{{$t(childL1.name)}}</el-menu-item>
+                <template v-if="!childL1.children">
+                  <el-menu-item :index="childL1.url" :key="index" :bihi-data="index">{{$t(childL1.name)}}</el-menu-item>
+                </template>
+                <!--TODO: 三级菜单-->
+                <template v-else>
+                  <el-submenu :index="childL1.url" :bihi-data="index">
+                    <span slot="title">{{$t(childL1.name)}}</span>
+                    <template v-for="(childL2, index) in childL1.children">
+                      <el-menu-item :index="childL2.url" :key="index" :bihi-data="index">{{$t(childL2.name)}}</el-menu-item>
+                    </template>
+                  </el-submenu>
+                </template>
               </template>
+
+
             </el-submenu>
           </template>
+          <!--TODO: 一级菜单-->
           <template v-else>
-            <el-menu-item :index="item.url" :key="index">
+            <el-menu-item :index="item.url" :key="index" :bihi-data="index">
               <i :class="item.icon"></i>
               <span slot="title">{{ $t(item.name) }}</span>
             </el-menu-item>

@@ -9,9 +9,10 @@ import Dashboard from '@/views/Dashboard'
 import Navigator from '@/views/Navigator'
 
 // Views - Pages
-import A from '@/views/pages/A'
-import B from '@/views/pages/B'
-import C from '@/views/pages/C'
+import A from '@/views/demo/A'
+import B from '@/views/demo/B'
+import C from '@/views/demo/C'
+import D from '@/views/demo/D'
 
 Vue.use(Router)
 
@@ -47,18 +48,23 @@ export default new Router({
           children: [
             {
               path: 'a',
-              name: 'A-A',
+              name: 'itemA',
               component: A
             },
             {
               path: 'b',
-              name: 'A-B',
+              name: 'itemB',
               component: B
             },
             {
               path: 'c',
-              name: 'A-C',
+              name: 'itemC',
               component: C
+            },
+            {
+              path: 'd',
+              name: 'itemD',
+              component: D
             }
           ]
         }

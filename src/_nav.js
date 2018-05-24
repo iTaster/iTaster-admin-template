@@ -11,7 +11,6 @@ export default {
       icon: 'el-icon-bell',
     },
     {
-      group:true,
       name: 'group',
       url: '/pages/a',
       icon: 'el-icon-goods',
@@ -27,6 +26,16 @@ export default {
         {
           name: 'itemC',
           url: '/pages/c',
+          children:[
+            {
+              name: 'itemC1',
+              url: '/pages/c',
+            },
+            {
+              name: 'itemC2',
+              url: '/pages/d',
+            }
+          ]
         }
       ]
     },
