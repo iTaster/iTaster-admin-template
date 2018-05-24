@@ -11,6 +11,7 @@ import './assets/scss/element-variables.scss'
 
 // 引用axios文件
 import axios from './untils/http.js'
+
 // 将API方法绑定到全局
 Vue.prototype.$http = axios
 

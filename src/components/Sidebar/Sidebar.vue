@@ -1,5 +1,6 @@
 <template>
   <el-aside class="sidebar" :class="{ 'sidebar-hidden': this.$store.getters.sidebar.isShow }" width="auto">
+    <!--TODO: 当导航栏高度超出最大限高是否出现滚动条-->
     <el-scrollbar class="sidebar-scrollbar">
       <el-menu class="sidebar-nav"
                @open="handleOpen"
@@ -31,8 +32,6 @@
                   </el-submenu>
                 </template>
               </template>
-
-
             </el-submenu>
           </template>
           <!--TODO: 一级菜单-->
@@ -45,6 +44,7 @@
         </template>
       </el-menu>
     </el-scrollbar>
+    <!--TODO: 导航菜单是否折叠-->
     <el-radio-group class="sidebar-footer"
                     v-model="isCollapse"
                     :bihi-data="isCollapse"
