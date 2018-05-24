@@ -1,19 +1,34 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
+      name: 'dashboard',
       url: '/dashboard',
       icon: 'el-icon-menu',
     },
     {
-      name: 'A',
-      url: '/a',
+      name: 'navigator',
+      url: '/navigator',
       icon: 'el-icon-bell',
     },
     {
-      name: 'B',
-      url: '/b',
+      group:true,
+      name: 'group',
+      url: '/pages/a',
       icon: 'el-icon-goods',
+      children: [
+        {
+          name: 'itemA',
+          url: '/pages/a',
+        },
+        {
+          name: 'itemB',
+          url: '/pages/b',
+        },
+        {
+          name: 'itemC',
+          url: '/pages/c',
+        }
+      ]
     },
   ]
 }

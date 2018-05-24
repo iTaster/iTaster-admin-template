@@ -6,59 +6,28 @@
                @close="handleClose"
                text-color="#fff"
                active-text-color="#427ec0"
+               router
                :collapse="isCollapse">
+        <!--TODO: 从数组中获得导航菜单 并进行分级渲染-->
         <template v-for="(item, index) in navItems">
-          <router-link :to="item.url">
-            <el-menu-item :index="index">
-              <i :class="item.icon"></i>
-              <span slot="title">{{ item.name }}</span>
-            </el-menu-item>
-          </router-link>
-
-        </template>
-
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">{{$t('navigator')}}4</span>
-        </el-menu-item>
-
-
-        <!--<el-submenu index="1">
-
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">{{$t('navigator')}}1</span>
+          <template v-if="item.group">
+            <el-submenu :index="item.url">
+              <template slot="title">
+                <i :class="item.icon"></i>
+                <span slot="title">{{$t(item.name)}}</span>
+              </template>
+              <template v-for="(childL1, index) in item.children">
+                <el-menu-item :index="childL1.url" :key="index">{{$t(childL1.name)}}</el-menu-item>
+              </template>
+            </el-submenu>
           </template>
-
-          <el-menu-item-group>
-            <span slot="title">{{$t('group')}}1</span>
-            <el-menu-item index="1-1">{{$t('item')}}1</el-menu-item>
-            <el-menu-item index="1-2">{{$t('item')}}2</el-menu-item>
-          </el-menu-item-group>
-
-          <el-menu-item-group>
-            <span slot="title">{{$t('group')}}2</span>
-            <el-menu-item index="1-3">{{$t('item')}}3</el-menu-item>
-          </el-menu-item-group>
-
-          <el-submenu index="1-4">
-            <span slot="title">{{$t('item')}}4</span>
-            <el-menu-item index="1-4-1">{{$t('item')}}1</el-menu-item>
-          </el-submenu>
-
-        </el-submenu>-->
-        <!--<el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">{{$t('navigator')}}2</span>
-        </el-menu-item>-->
-        <!--<el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title">{{$t('navigator')}}3</span>
-        </el-menu-item>-->
-        <!--<el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">{{$t('navigator')}}4</span>
-        </el-menu-item>-->
+          <template v-else>
+            <el-menu-item :index="item.url" :key="index">
+              <i :class="item.icon"></i>
+              <span slot="title">{{ $t(item.name) }}</span>
+            </el-menu-item>
+          </template>
+        </template>
       </el-menu>
     </el-scrollbar>
     <el-radio-group class="sidebar-footer"
@@ -72,6 +41,7 @@
 </template>
 
 <script>
+  import SidebarNavDivider from './SidebarNavDivider'
 
   export default {
     name: "sidebar",
@@ -82,7 +52,9 @@
         default: () => []
       }
     },
-    components: {},
+    components: {
+      SidebarNavDivider
+    },
     data() {
       return {
         isCollapse: this.$store.getters.sidebar.isFold
@@ -105,7 +77,7 @@
         this.$store.commit('logoAndSidebarSmall', key);
         // console.log("11111:" + this.isCollapse);
         // console.log("22222:"+ this.$store.getters.sidebar.isFold);
-      }
+      },
     }
   }
 </script>
