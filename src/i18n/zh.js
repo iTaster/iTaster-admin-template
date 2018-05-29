@@ -9,4 +9,17 @@ export default {
   itemC:'选项 3',
   itemC1:'选项 1',
   itemC2:'选项 2',
+
+  objName:'项目名称：',
+  objType:'项目类型：',
+  order:'次序',
+  desc:'简述',
+  type:'类型',
+  type1:'JavaScript',
+  type2:'HTML',
+  type3:'Java',
+  type4:'CSS',
+  type5:'PHP',
+  type6:'Python',
+  type7:'Vue',
 }
