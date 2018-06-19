@@ -29,8 +29,8 @@
 </template>
 <script>
   import API from '../../api/index'
-  import ScreenFull from './ScreenFull'
-  import NavbarToggler from './NavbarToggle'
+  import ScreenFull from './HeaderScreenFull'
+  import NavbarToggler from './HeaderNavbarToggle'
 
   export default {
     name: 'Header',

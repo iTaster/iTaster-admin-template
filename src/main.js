@@ -4,6 +4,7 @@ import 'normalize.css'
 import Vue from 'vue'
 import i18n from './i18n'
 import Element from 'element-ui'
+import VCharts from 'v-charts'
 
 // 自定义 element-ui 主题
 import './assets/scss/element-variables.scss'
@@ -23,6 +24,7 @@ promise.polyfill()
 
 Vue.config.productionTip = false
 
+Vue.use(VCharts)
 Vue.use(Element, {
   size: 'small',
   i18n: (key, value) => i18n.t(key, value)
