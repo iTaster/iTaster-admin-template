@@ -33,6 +33,11 @@
 # 概括
 ### 基于 vue-cli 的 [Webpack4.x 模板](https://github.com/iTaster/webpack4-template) 修改的admin, 請勿下载，初步代码，没有任何功能，纯属写着玩，练手.
 
+###更新说明
+
+2018/6/19 升级webpack, 使用 webpack4 推荐新的插件mini-css-extract-plugin
+
+
 ## 安装
 ```
 ＃克隆该项目
